@@ -302,6 +302,7 @@
     .offering-card {
       background: var(--earth); padding: 40px 32px;
       transition: background 0.3s;
+      display: block;
     }
     .offering-card:hover { background: var(--deep); }
     .offering-num {
@@ -534,8 +535,40 @@
 
     /* MOBILE */
     @media (max-width: 900px) {
-      .offerings-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
-      .offering-card { padding: 28px 20px; }
+      .offerings-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2px;
+        margin-top: 32px;
+      }
+      .offering-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        padding: 22px 24px !important;
+        gap: 18px;
+        min-height: 80px;
+      }
+      .offering-num {
+        font-size: 24px !important;
+        margin-bottom: 0 !important;
+        flex-shrink: 0;
+        width: 36px;
+        opacity: 0.3;
+      }
+      .offering-title {
+        font-size: 17px !important;
+        margin-bottom: 2px !important;
+        line-height: 1.2 !important;
+      }
+      .offering-body {
+        font-size: 12px !important;
+        opacity: 0.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-top: 0 !important;
+      }
       nav { padding: 16px 20px; }
       nav.scrolled { padding: 14px 20px; }
       .nav-links { display: none; }
@@ -678,7 +711,7 @@
         <span class="he">חמישה עולמות,<br/><em>מקום אחד</em></span>
         <span class="en">Five Worlds,<br/><em>One Place</em></span>
       </h2>
-      <div class="offerings-grid" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="offerings-grid">
         <a href="events.html" class="offering-card" style="text-decoration:none;">
           <span class="offering-num">01</span>
           <div class="offering-title"><span class="he">גן האירועים</span><span class="en">Events Garden</span></div>
