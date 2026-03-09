@@ -12,9 +12,9 @@
 <body>
 
   <!-- Lang Toggle -->
-  <div class="lang-toggle">
-    <button id="btn-he" class="active" onclick="setLang('he')">עב</button>
-    <button id="btn-en" onclick="setLang('en')">EN</button>
+  <div class="lang-switch" id="langSwitch">
+    <button class="lang-btn active" id="btn-he" onclick="setLang('he')">HE</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
   </div>
 
   <!-- Nav -->
@@ -22,11 +22,12 @@
     <a href="index.html" class="nav-logo">Colonia</a>
     <ul class="nav-links">
       <li><a href="events.html"><span class="he">אירועים</span><span class="en">Events</span></a></li>
-      <li><a href="room.html"><span class="he">הצימר</span><span class="en">Room</span></a></li>
-      <li><a href="diving.html"><span class="he">צלילה</span><span class="en">Diving</span></a></li>
       <li><a href="shows.html"><span class="he">הופעות</span><span class="en">Shows</span></a></li>
+      <li><a href="restaurant.html"><span class="he">מסעדה</span><span class="en">Restaurant</span></a></li>
+      <li><a href="diving.html"><span class="he">צלילה</span><span class="en">Diving</span></a></li>
+      <li><a href="room.html"><span class="he">צימר</span><span class="en">Room</span></a></li>
       <li><a href="testimonials.html"><span class="he">המלצות</span><span class="en">Reviews</span></a></li>
-      <li><a href="index.html#booking" class="nav-cta"><span class="he">הזמנה</span><span class="en">Book</span></a></li>
+      <li><a href="index.html#booking" class="nav-cta"><span class="he">סגירת תאריך</span><span class="en">Book Now</span></a></li>
     </ul>
   </nav>
 
@@ -44,8 +45,8 @@
         <span class="en">Live Shows</span>
       </h1>
       <p class="body-text" style="color: var(--warm); max-width: 560px; margin: 0 auto;">
-        <span class="he">במה פתוחה תחת כיפת השמיים, עם ההרים מאחורה וים סוף מקדים</span>
-        <span class="en">An open stage beneath the sky, mountains behind, Red Sea ahead</span>
+        <span class="he">במה פתוחה תחת כיפת השמיים - לאירועי חברה, הופעות ומסיבות השקה</span>
+        <span class="en">An open stage beneath the sky - for corporate events, live shows and launch parties</span>
       </p>
     </div>
   </section>
@@ -188,6 +189,89 @@
             <span class="en">Theatre, flamenco, dance, spoken word - our stage suits any form of artistic expression. The open space adds a dimension beyond price.</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate Events Section -->
+  <section class="dark" style="padding: 96px 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 64px;">
+        <p class="eyebrow" style="color: var(--tan);">
+          <span class="he">לעסקים ולחברות</span>
+          <span class="en">For Business & Corporates</span>
+        </p>
+        <h2 class="display light" style="margin-top: 16px;">
+          <span class="he">אירועי חברה בסטנדרט אחר</span>
+          <span class="en">Corporate Events at a Different Standard</span>
+        </h2>
+        <p class="body-text" style="color: rgba(244,239,232,0.6); max-width: 560px; margin: 16px auto 0;">
+          <span class="he">קולוניה מארחת חברות מהמובילות בישראל לאירועים שנשארים בזיכרון. המתחם הייחודי שלנו מציע שילוב בלתי אפשרי - מקצועיות ברמה הגבוהה ביותר, יחד עם נוף וסביבה שאין כמותם.</span>
+          <span class="en">Colonia hosts some of Israel's leading companies for events that leave a lasting mark. Our unique venue offers an impossible combination - top-tier professionalism, together with scenery and atmosphere like nowhere else.</span>
+        </p>
+      </div>
+      <div class="card-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="card" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="card-num" style="color: var(--tan);">01</div>
+          <div class="card-title" style="color: var(--cream);">
+            <span class="he">ימי גיבוש</span>
+            <span class="en">Team Building</span>
+          </div>
+          <div class="card-body" style="color: rgba(244,239,232,0.5);">
+            <span class="he">גיבוש צוות בסביבה ייחודית - שילוב של פעילויות, אוכל, מוזיקה ונוף שמייצר אנרגיה שקשה לשכפל.</span>
+            <span class="en">Team bonding in a unique setting - combining activities, food, music and scenery that creates energy hard to replicate.</span>
+          </div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="card-num" style="color: var(--tan);">02</div>
+          <div class="card-title" style="color: var(--cream);">
+            <span class="he">כנסים ומפגשים</span>
+            <span class="en">Conferences</span>
+          </div>
+          <div class="card-body" style="color: rgba(244,239,232,0.5);">
+            <span class="he">מרחב פתוח לכנסים, ימי עיון ופרזנטציות - עם ציוד מקצועי ואווירה שמעוררת חשיבה.</span>
+            <span class="en">Open space for conferences, seminars and presentations - with professional equipment and an atmosphere that stimulates thinking.</span>
+          </div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="card-num" style="color: var(--tan);">03</div>
+          <div class="card-title" style="color: var(--cream);">
+            <span class="he">מסיבות חברה</span>
+            <span class="en">Company Parties</span>
+          </div>
+          <div class="card-body" style="color: rgba(244,239,232,0.5);">
+            <span class="he">חגיגות סיום שנה, יובלים ואירועי עובדים - המתחם שלנו יוצר חגיגה בלתי נשכחת.</span>
+            <span class="en">Year-end celebrations, milestones and employee events - our venue creates an unforgettable celebration.</span>
+          </div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="card-num" style="color: var(--tan);">04</div>
+          <div class="card-title" style="color: var(--cream);">
+            <span class="he">אירועי השקה</span>
+            <span class="en">Launch Events</span>
+          </div>
+          <div class="card-body" style="color: rgba(244,239,232,0.5);">
+            <span class="he">השקת מוצר, מותג או פרויקט - ברקע שלא שוכחים, עם הפקה מלאה מקצה לקצה.</span>
+            <span class="en">Product, brand or project launches - against a backdrop that stays with you, with full end-to-end production.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate Quote -->
+  <section class="cream" style="padding: 80px 0;">
+    <div class="container">
+      <div class="quote-block">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">
+          <span class="he">ארגנו אצלכם יום גיבוש לצוות של 80 איש. מהרגע הראשון שנכנסנו ועד לרגע האחרון - הכל היה מדויק, מרשים ומדהים. הצוות שלנו עדיין מדבר על זה.</span>
+          <span class="en">We organized a team-building day for a team of 80. From the first moment we arrived to the last - everything was precise, impressive and amazing. Our team is still talking about it.</span>
+        </p>
+        <p class="quote-author">
+          <span class="he">מיכל לוי - סמנכ"ל משאבי אנוש, חברת טכנולוגיה 2024</span>
+          <span class="en">Michal Levi - VP Human Resources, Tech Company 2024</span>
+        </p>
       </div>
     </div>
   </section>
