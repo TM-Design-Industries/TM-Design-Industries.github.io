@@ -128,13 +128,14 @@ nav.scrolled {
 .hero-bg {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
+  filter: saturate(0.55) brightness(0.95);
   transform: scale(1.03);
   transition: transform 8s ease-out;
 }
 .hero-bg.loaded { transform: scale(1); }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: rgba(248,244,238,0.58);
+  background: rgba(248,244,238,0.76);
 }
 .hero-overlay.dark {
   background: linear-gradient(180deg,
@@ -506,6 +507,8 @@ footer a:hover { color: var(--cream); }
   .g-item.tall { grid-row: span 1; }
   .g-item.wide { grid-column: span 2; }
   .card-grid { grid-template-columns: 1fr; gap: 1px; }
+  .offerings-grid { grid-template-columns: 1fr 1fr !important; }
+  .offering-card { padding: 28px 20px; }
   .photo-strip .strip-photo { width: 260px; height: 200px; }
   .quote-block { padding: 40px 24px; }
   footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
