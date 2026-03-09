@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מסעדה ומנגל | Colonia Rest House Eilat</title>
+  <meta name="description" content="טעמי קולוניה - מטבח פתוח, מנגל מקצועי וקייטרינג לאירועים ואירועי חברה באילת. Colonia Kitchen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #EDE8DF; --warm: #E2D8C8; --sand: #D4C4A4; --tan: #C8A882;
+      --brown: #C07848; --deep: #B86030; --earth: #6A5048; --rust: #B06838;
+      --rust2: #C87848; --dark: #524038; --white: #F5F1EB;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Heebo', sans-serif; background: var(--white); color: var(--earth); overflow-x: hidden; font-weight: 300; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; }
+    section, footer { width: 100%; overflow-x: hidden; }
+    img { max-width: 100%; }
+
+    /* LANG */
+    .lang-switch { position: fixed; top: 20px; left: 24px; z-index: 1000; display: flex; gap: 4px; }
+    .lang-btn { background: rgba(245,241,235,0.7); border: 1px solid var(--sand); color: var(--brown); border-radius: 3px; padding: 5px 12px; font-size: 11px; font-weight: 500; cursor: pointer; letter-spacing: 1px; font-family: 'Heebo', sans-serif; transition: all 0.2s; }
+    .lang-btn.active, .lang-btn:hover { background: var(--earth); color: var(--cream); border-color: var(--earth); }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 900; padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s; }
+    nav.scrolled { background: rgba(250,250,248,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--warm); padding: 16px 48px; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--earth); letter-spacing: 6px; text-decoration: none; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--brown); text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--earth); }
+    .nav-cta { border: 1px solid var(--tan) !important; padding: 8px 20px; border-radius: 2px; color: var(--earth) !important; }
+    .nav-cta:hover { background: var(--earth) !important; border-color: var(--earth) !important; color: var(--cream) !important; }
+
+    /* HERO */
+    .hero { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: url('garden-view.jpg') center 55% / cover no-repeat; transition: opacity 0.8s; opacity: 0; }
+    .hero-bg.loaded { opacity: 1; }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(245,241,235,0.52); }
+    .hero-content { position: relative; z-index: 2; padding: 0 64px 72px; color: var(--earth); width: 100%; }
+    .hero-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: var(--rust); margin-bottom: 16px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 8vw, 88px); font-weight: 300; line-height: 0.95; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 20px; color: var(--earth); }
+    .hero h1 em { font-style: italic; font-weight: 300; display: block; font-size: 0.5em; letter-spacing: 12px; opacity: 0.65; margin-top: 8px; }
+    .hero-desc { font-size: 14px; font-weight: 300; color: var(--brown); letter-spacing: 1px; line-height: 1.7; max-width: 480px; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn-primary { background: transparent; color: var(--earth); border: 1px solid var(--tan); padding: 13px 32px; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.25s; display: inline-block; font-family: 'Heebo', sans-serif; border-radius: 2px; }
+    .btn-primary:hover { background: var(--earth); color: var(--cream); border-color: var(--earth); }
+    .btn-primary.filled { background: var(--rust); border-color: var(--rust); color: var(--white); }
+    .btn-primary.filled:hover { background: var(--rust2); border-color: var(--rust2); }
+    .btn-dark { background: var(--earth); color: var(--cream); border: 1px solid var(--earth); padding: 13px 32px; font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.25s; display: inline-block; font-family: 'Heebo', sans-serif; border-radius: 2px; }
+    .btn-dark:hover { background: var(--rust); border-color: var(--rust); }
+
+    /* SECTIONS */
+    section { padding: 100px 48px; }
+    .container { max-width: 1140px; margin: 0 auto; }
+    .section-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: var(--rust); margin-bottom: 14px; }
+    .section-eyebrow.light { color: var(--tan); }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 300; line-height: 1.1; margin-bottom: 20px; color: var(--earth); }
+    .section-title.light { color: var(--cream); }
+    .section-title em { font-style: italic; }
+    .section-body { font-size: 15px; line-height: 1.85; color: var(--brown); font-weight: 300; max-width: 560px; }
+    .section-body.light { color: rgba(244,239,232,0.65); }
+
+    /* DIVIDER */
+    .divider { height: 1px; background: var(--warm); margin: 0 48px; }
+
+    /* NUMBERS STRIP */
+    .numbers-strip { background: var(--dark); padding: 56px 48px; }
+    .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(255,255,255,0.08); max-width: 1140px; margin: 0 auto; }
+    .number-card { background: var(--dark); padding: 40px 28px; text-align: center; }
+    .number-val { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5vw, 56px); font-weight: 300; color: var(--cream); letter-spacing: 2px; display: block; line-height: 1; margin-bottom: 12px; }
+    .number-label { font-size: 9px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: rgba(244,239,232,0.4); display: block; }
+
+    /* ABOUT TWO-COL */
+    .about-two { background: var(--cream); }
+    .about-two-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img-stack { position: relative; height: 520px; }
+    .about-img-main { width: 85%; height: 100%; overflow: hidden; }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-accent { position: absolute; bottom: -28px; right: 0; width: 55%; height: 200px; overflow: hidden; border: 6px solid var(--cream); }
+    .about-img-accent img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* FEATURE LIST */
+    .feature-list { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
+    .feature-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--warm); font-size: 14px; color: var(--brown); font-weight: 300; opacity: 0; transform: translateY(12px); transition: opacity 0.5s, transform 0.5s; }
+    .feature-item.visible { opacity: 1; transform: none; }
+    .feature-item::before { content: ''; width: 20px; height: 1px; background: var(--rust); flex-shrink: 0; }
+
+    /* CATERING CARDS */
+    .catering-section { background: var(--warm); }
+    .catering-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--sand); margin-top: 56px; }
+    .catering-card { background: var(--warm); padding: 48px 36px; transition: background 0.3s; }
+    .catering-card:hover { background: var(--cream); }
+    .catering-num { font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--rust2); letter-spacing: 2px; margin-bottom: 20px; display: block; }
+    .catering-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--earth); margin-bottom: 14px; line-height: 1.2; }
+    .catering-body { font-size: 13px; line-height: 1.85; color: var(--brown); font-weight: 300; }
+    .catering-tag { display: inline-block; margin-top: 16px; font-size: 9px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--rust); padding: 4px 10px; border: 1px solid var(--tan); }
+
+    /* PHOTO STRIP */
+    .photo-strip { display: flex; overflow-x: auto; gap: 3px; padding-bottom: 0; scrollbar-width: none; cursor: grab; }
+    .photo-strip::-webkit-scrollbar { display: none; }
+    .strip-photo { width: 320px; height: 240px; object-fit: cover; flex-shrink: 0; display: block; }
+
+    /* QUOTE */
+    .quote-section { background: var(--cream); padding: 80px 48px; }
+    .quote-block { max-width: 720px; margin: 0 auto; position: relative; padding: 0 48px; text-align: center; }
+    .quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 120px; font-weight: 300; color: var(--sand); position: absolute; top: -32px; right: 0; line-height: 1; }
+    body.lang-en .quote-mark { right: auto; left: 0; }
+    .quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 3vw, 28px); font-weight: 300; font-style: italic; color: var(--earth); line-height: 1.65; margin-bottom: 28px; position: relative; z-index: 1; }
+    .quote-author { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--rust); font-weight: 500; }
+
+    /* ACCORDION */
+    .accordion-section { background: var(--white); padding: 80px 48px; }
+    .accordion { max-width: 720px; margin: 40px auto 0; }
+    .accordion-item { border-bottom: 1px solid var(--warm); }
+    .accordion-trigger { width: 100%; background: none; border: none; display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: pointer; font-size: 15px; font-weight: 400; color: var(--earth); letter-spacing: 0.3px; gap: 20px; font-family: 'Heebo', sans-serif; text-align: right; }
+    body.lang-en .accordion-trigger { text-align: left; }
+    .accordion-trigger span:first-child { flex: 1; }
+    .accordion-arrow { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--sand); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; color: var(--rust); font-size: 18px; line-height: 1; }
+    .accordion-item.open .accordion-arrow { background: var(--earth); border-color: var(--earth); color: var(--cream); transform: rotate(45deg); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .accordion-body p { padding: 0 0 20px; font-size: 14px; color: var(--brown); line-height: 1.85; font-weight: 300; max-width: 600px; }
+
+    /* CTA DARK */
+    .cta-dark { background: var(--dark); padding: 96px 48px; text-align: center; }
+    .cta-dark .section-title.light { margin-bottom: 12px; }
+    .cta-dark .section-body.light { max-width: 480px; margin: 0 auto 40px; }
+
+    /* CONTACT */
+    .contact-section { background: var(--cream); padding: 80px 48px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--sand); margin-top: 48px; }
+    .contact-card { background: var(--cream); padding: 40px 36px; text-decoration: none; transition: background 0.25s; display: block; }
+    .contact-card:hover { background: var(--warm); }
+    .c-type { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--rust); margin-bottom: 12px; display: block; }
+    .c-val { font-size: 17px; color: var(--earth); font-weight: 400; }
+    .c-sub { font-size: 12px; color: var(--brown); margin-top: 6px; font-weight: 300; }
+
+    /* STICKY CTA */
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; padding: 14px 20px; background: var(--earth); display: flex; justify-content: center; transform: translateY(100%); transition: transform 0.3s; border-top: 1px solid rgba(255,255,255,0.1); }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta a { color: var(--cream); text-decoration: none; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; font-family: 'Heebo', sans-serif; }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: rgba(255,255,255,0.25); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; font-size: 11px; letter-spacing: 1px; }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    footer a:hover { color: var(--cream); }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; } nav.scrolled { padding: 14px 20px; } .nav-links { display: none; }
+      .lang-switch { top: 16px; left: 16px; }
+      .hero-content { padding: 0 20px 56px; }
+      section { padding: 64px 20px; }
+      .numbers-strip { padding: 48px 20px; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .about-two-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-img-stack { height: 280px; }
+      .about-img-main { width: 100%; }
+      .about-img-accent { display: none; }
+      .catering-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .quote-section { padding: 60px 20px; }
+      .quote-block { padding: 0 20px; }
+      .accordion-section { padding: 60px 20px; }
+      .cta-dark { padding: 60px 20px; }
+      .contact-section { padding: 60px 20px; }
+      .strip-photo { width: 240px; height: 160px; }
+      footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px 20px; }
+    }
+
+    /* LANG */
+    .he { display: block; } .en { display: none; }
+    body.lang-en .he { display: none; } body.lang-en .en { display: block; }
+    body.lang-en { direction: ltr; }
+    span.he { display: inline; } span.en { display: none; }
+    body.lang-en span.he { display: none; } body.lang-en span.en { display: inline; }
+  </style>
+</head>
+<body>
+
+  <div class="lang-switch" id="langSwitch">
+    <button class="lang-btn active" id="btn-he" onclick="setLang('he')">HE</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Colonia</a>
+    <ul class="nav-links">
+      <li><a href="events.html"><span class="he">אירועים</span><span class="en">Events</span></a></li>
+      <li><a href="shows.html"><span class="he">הופעות</span><span class="en">Shows</span></a></li>
+      <li><a href="restaurant.html"><span class="he">מסעדה</span><span class="en">Restaurant</span></a></li>
+      <li><a href="diving.html"><span class="he">צלילה</span><span class="en">Diving</span></a></li>
+      <li><a href="room.html"><span class="he">צימר</span><span class="en">Room</span></a></li>
+      <li><a href="testimonials.html"><span class="he">המלצות</span><span class="en">Reviews</span></a></li>
+      <li><a href="index.html#booking" class="nav-cta"><span class="he">סגירת תאריך</span><span class="en">Book Now</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow"><span class="he">מסעדה ומנגל</span><span class="en">Restaurant & BBQ</span></p>
+      <h1>
+        <span class="he">טעמי קולוניה</span>
+        <span class="en">Colonia Kitchen</span>
+        <em><span class="he">Colonia Kitchen</span><span class="en">טעמי קולוניה</span></em>
+      </h1>
+      <p class="hero-desc">
+        <span class="he">מטבח פתוח, מנגל מקצועי וקייטרינג לאירועי חברה - עם טעמים של ים סוף ואנרגיה של קולוניה</span>
+        <span class="en">Open kitchen, professional BBQ and corporate event catering - with Red Sea flavors and Colonia energy</span>
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary filled"><span class="he">הזמן קייטרינג</span><span class="en">Book Catering</span></a>
+        <a href="#about" class="btn-primary"><span class="he">גלה עוד</span><span class="en">Discover More</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS STRIP -->
+  <div class="numbers-strip">
+    <div class="numbers-grid">
+      <div class="number-card">
+        <span class="number-val"><span class="he">מטבח</span><span class="en">Open</span></span>
+        <span class="number-label"><span class="he">פתוח</span><span class="en">Kitchen</span></span>
+      </div>
+      <div class="number-card">
+        <span class="number-val"><span class="he">מנגל</span><span class="en">Pro</span></span>
+        <span class="number-label"><span class="he">מקצועי</span><span class="en">BBQ</span></span>
+      </div>
+      <div class="number-card">
+        <span class="number-val"><span class="he">קייטרינג</span><span class="en">Event</span></span>
+        <span class="number-label"><span class="he">לאירועים</span><span class="en">Catering</span></span>
+      </div>
+      <div class="number-card">
+        <span class="number-val">50+</span>
+        <span class="number-label"><span class="he">כסאות</span><span class="en">Seats</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT TWO COL -->
+  <section class="about-two" id="about">
+    <div class="container">
+      <div class="about-two-grid">
+        <div class="about-img-stack">
+          <div class="about-img-main">
+            <img src="garden3.jpg" alt="Colonia garden dining" />
+          </div>
+          <div class="about-img-accent">
+            <img src="garden1.jpg" alt="Garden atmosphere" />
+          </div>
+        </div>
+        <div>
+          <p class="section-eyebrow"><span class="he">המסעדה שלנו</span><span class="en">Our Restaurant</span></p>
+          <h2 class="section-title">
+            <span class="he">אוכל טוב,<br/><em>אווירה עוד יותר טובה</em></span>
+            <span class="en">Great Food,<br/><em>Even Better Atmosphere</em></span>
+          </h2>
+          <p class="section-body">
+            <span class="he">המטבח הפתוח של קולוניה הוא חלק בלתי נפרד מהחוויה. שולחנות גדולים לקבוצות, מנגל פעיל, ואוויר של ים סוף מסביב. כאן לא סתם אוכלים - חווים. אנחנו מאמינים שאוכל טוב הוא ה-DNA של כל אירוע מוצלח, ולכן הקייטרינג שלנו בנוי ברמת הפקה מלאה - ממנת הבוקר הראשונה ועד לערב המנגל האחרון.</span>
+            <span class="en">Colonia's open kitchen is an integral part of the experience. Large communal tables for groups, an active BBQ, and Red Sea air all around. Here you don't just eat - you experience. We believe great food is the DNA of every successful event, so our catering is built at full production level - from the first morning bite to the last BBQ evening.</span>
+          </p>
+          <ul class="feature-list">
+            <li class="feature-item"><span class="he">מנגל פתוח</span><span class="en">Open BBQ</span></li>
+            <li class="feature-item"><span class="he">אוכל טרי</span><span class="en">Fresh Food</span></li>
+            <li class="feature-item"><span class="he">שולחנות גדולים לקבוצות</span><span class="en">Large Tables for Groups</span></li>
+            <li class="feature-item"><span class="he">קייטרינג לאירועים</span><span class="en">Event Catering</span></li>
+            <li class="feature-item"><span class="he">תפריט עונתי</span><span class="en">Seasonal Menu</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CATERING CARDS -->
+  <section class="catering-section">
+    <div class="container">
+      <p class="section-eyebrow"><span class="he">קייטרינג לאירועי חברה</span><span class="en">Corporate Catering</span></p>
+      <h2 class="section-title">
+        <span class="he">תפריטים<br/><em>לכל שעה ביום</em></span>
+        <span class="en">Menus for<br/><em>Every Hour of the Day</em></span>
+      </h2>
+      <p class="section-body">
+        <span class="he">אנחנו מציעים פתרונות קייטרינג מלאים לאירועי חברה - ממנות בוקר מרעננות ועד לערבי מנגל אפיים. הכל מותאם לגודל הקבוצה, לרוח האירוע ולטעמים שלכם.</span>
+        <span class="en">We offer full catering solutions for corporate events - from refreshing morning spreads to epic BBQ evenings. Everything tailored to group size, event spirit and your tastes.</span>
+      </p>
+      <div class="catering-grid">
+        <div class="catering-card">
+          <span class="catering-num">01</span>
+          <div class="catering-title"><span class="he">ארוחת בוקר</span><span class="en">Breakfast</span></div>
+          <p class="catering-body">
+            <span class="he">פתיחת יום גיבוש עם מנות בוקר מרעננות - לחמים טריים, גבינות, ממרחים, ירקות, ביצים ועוד. מושלם לטעינת אנרגיה לפני יום עמוס.</span>
+            <span class="en">Start the team-building day with refreshing morning spreads - fresh breads, cheeses, spreads, vegetables, eggs and more. Perfect for charging up before a full day.</span>
+          </p>
+          <span class="catering-tag"><span class="he">מ-15 איש</span><span class="en">From 15 people</span></span>
+        </div>
+        <div class="catering-card">
+          <span class="catering-num">02</span>
+          <div class="catering-title"><span class="he">ארוחת צהריים</span><span class="en">Lunch</span></div>
+          <p class="catering-body">
+            <span class="he">ארוחת צהריים מלאה לקבוצות - תפריט מגוון עם מנות חמות, סלטים, מאפים ומשקאות. אפשרות לתפריט כשר.</span>
+            <span class="en">Full lunch for groups - varied menu with hot dishes, salads, pastries and beverages. Kosher menu option available.</span>
+          </p>
+          <span class="catering-tag"><span class="he">מ-20 איש</span><span class="en">From 20 people</span></span>
+        </div>
+        <div class="catering-card">
+          <span class="catering-num">03</span>
+          <div class="catering-title"><span class="he">ערב מנגל</span><span class="en">BBQ Evening</span></div>
+          <p class="catering-body">
+            <span class="he">הסיום המושלם לכל אירוע חברה - מנגל פתוח, בשרים טריים, סלטים וצלייה על הגחלים עם הרי אילת ברקע.</span>
+            <span class="en">The perfect finale to any corporate event - open BBQ, fresh meats, salads and coal grilling with Eilat mountains in the backdrop.</span>
+          </p>
+          <span class="catering-tag"><span class="he">מ-25 איש</span><span class="en">From 25 people</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <img src="garden1.jpg" class="strip-photo" alt="הגן" />
+    <img src="garden3.jpg" class="strip-photo" alt="גן" />
+    <img src="garden4.jpg" class="strip-photo" alt="גן קולוניה" />
+    <img src="garden5.jpg" class="strip-photo" alt="רחבת הגן" />
+    <img src="nightgarden1.jpg" class="strip-photo" alt="גן בלילה" />
+  </div>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote-block">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">
+          <span class="he">הגענו עם 60 אנשים לגיבוש חברה. האוכל, המקום, האנרגיה - הכל היה מושלם. נחזור בוודאות.</span>
+          <span class="en">We came with 60 people for a company team-building. The food, the place, the energy - everything was perfect. We'll definitely be back.</span>
+        </p>
+        <p class="quote-author">
+          <span class="he">שרון אבני - מנהלת HR 2024</span>
+          <span class="en">Sharon Avni - HR Manager 2024</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCORDION FAQ -->
+  <section class="accordion-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <p class="section-eyebrow"><span class="he">שאלות נפוצות</span><span class="en">FAQ</span></p>
+        <h2 class="section-title" style="margin-bottom:0;"><span class="he">כל מה ש<em>רציתם לדעת</em></span><span class="en">Everything You <em>Wanted to Know</em></span></h2>
+      </div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span class="he">האם אפשר להזמין קייטרינג לאירוע חברה גדול?</span>
+            <span class="en">Can we book catering for a large corporate event?</span>
+            <span class="accordion-arrow">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>
+              <span class="he">בהחלט. אנחנו מתמחים בקייטרינג לאירועי חברה גדולים - ממנות בוקר ועד ערבי מנגל לעשרות ומאות איש. ניתן לתאם תפריט מותאם אישית לצרכי האירוע שלכם.</span>
+              <span class="en">Absolutely. We specialize in catering for large corporate events - from morning spreads to BBQ evenings for dozens to hundreds of people. You can coordinate a custom menu tailored to your event's needs.</span>
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span class="he">האם המנגל פתוח לאורחים רגילים?</span>
+            <span class="en">Is the BBQ open for regular guests?</span>
+            <span class="accordion-arrow">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>
+              <span class="he">כן. המנגל זמין לאורחי המתחם ולמשתתפי אירועים פרטיים. אנחנו ממליצים לתאם מראש כדי שנוכל להכין הכל לפי גודל הקבוצה שלכם.</span>
+              <span class="en">Yes. The BBQ is available for venue guests and private event participants. We recommend coordinating in advance so we can prepare everything according to your group size.</span>
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span class="he">האם יש אפשרות לתפריט כשר?</span>
+            <span class="en">Is a kosher menu available?</span>
+            <span class="accordion-arrow">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>
+              <span class="he">כן, אנחנו יכולים להתאים תפריט כשר לפי הצורך. אנא ציינו זאת בעת ההזמנה כדי שנוכל לתאם מראש עם ספקים מתאימים.</span>
+              <span class="en">Yes, we can adapt a kosher menu as needed. Please mention this when booking so we can coordinate in advance with appropriate suppliers.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA DARK -->
+  <section class="cta-dark">
+    <p class="section-eyebrow light"><span class="he">מוכנים?</span><span class="en">Ready?</span></p>
+    <h2 class="section-title light">
+      <span class="he">מוכנים לתכנן<br/><em>את הארוחה של האירוע?</em></span>
+      <span class="en">Ready to Plan<br/><em>the Meal of Your Event?</em></span>
+    </h2>
+    <p class="section-body light">
+      <span class="he">אנחנו כאן לתכנן את הקייטרינג המושלם - מנות בוקר, צהריים, ערבי מנגל ועוד.</span>
+      <span class="en">We're here to plan the perfect catering - morning spreads, lunch, BBQ evenings and more.</span>
+    </p>
+    <a href="#contact" class="btn-primary filled" style="margin-top: 32px; display: inline-block;">
+      <span class="he">צרו קשר עכשיו</span><span class="en">Contact Us Now</span>
+    </a>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <p class="section-eyebrow"><span class="he">צרו קשר</span><span class="en">Contact</span></p>
+      <h2 class="section-title"><span class="he">דברו <em>איתנו</em></span><span class="en">Get in <em>Touch</em></span></h2>
+      <div class="contact-grid">
+        <a href="tel:+972537764807" class="contact-card">
+          <span class="c-type"><span class="he">טלפון</span><span class="en">Phone</span></span>
+          <div class="c-val">+972-53-776-4807</div>
+          <div class="c-sub"><span class="he">שיחה ישירה</span><span class="en">Direct call</span></div>
+        </a>
+        <a href="https://wa.me/972537764807" class="contact-card">
+          <span class="c-type">WhatsApp</span>
+          <div class="c-val"><span class="he">שלח הודעה</span><span class="en">Send a message</span></div>
+          <div class="c-sub"><span class="he">זמין 24/7</span><span class="en">Available 24/7</span></div>
+        </a>
+        <a href="https://maps.app.goo.gl/pSJWfZtYGJY27FjQ9" target="_blank" class="contact-card">
+          <span class="c-type"><span class="he">מיקום</span><span class="en">Location</span></span>
+          <div class="c-val"><span class="he">דרך מצריים 160, אילת 8804346</span><span class="en">Derech Mitzraim 160, Eilat 8804346</span></div>
+          <div class="c-sub">Google Maps</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 Colonia Rest House, Eilat</span>
+    <span><span class="he">מסעדה ומנגל - טעמי קולוניה</span><span class="en">Restaurant & BBQ - Colonia Kitchen</span></span>
+    <span><a href="index.html">coloniaeilat.com</a></span>
+  </footer>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta">
+    <a href="#contact">
+      <span class="he">הזמן קייטרינג</span>
+      <span class="en">Book Catering</span>
+    </a>
+  </div>
+
+  <script>
+    function setLang(l) {
+      document.body.classList.toggle('lang-en', l==='en');
+      document.getElementById('btn-he').classList.toggle('active', l==='he');
+      document.getElementById('btn-en').classList.toggle('active', l==='en');
+      document.documentElement.setAttribute('dir', l==='en' ? 'ltr' : 'rtl');
+      document.documentElement.setAttribute('lang', l);
+    }
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+      const cta = document.querySelector('.sticky-cta');
+      if (cta) cta.classList.toggle('visible', window.scrollY > 200);
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.feature-item').forEach(el => observer.observe(el));
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const suffix = el.dataset.suffix || '';
+          let current = 0; const step = target / 50;
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = Math.round(current) + suffix;
+            if (current >= target) clearInterval(timer);
+          }, 30);
+          countObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => countObserver.observe(el));
+    document.querySelectorAll('.accordion-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const body = item.querySelector('.accordion-body');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.accordion-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.accordion-body').style.maxHeight = '0';
+        });
+        if (!isOpen) { item.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px'; }
+      });
+    });
+    document.querySelectorAll('.photo-strip').forEach(el => {
+      let isDown = false, startX, scrollLeft;
+      el.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - el.offsetLeft; scrollLeft = el.scrollLeft; });
+      el.addEventListener('mouseleave', () => isDown = false);
+      el.addEventListener('mouseup', () => isDown = false);
+      el.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - el.offsetLeft; el.scrollLeft = scrollLeft - (x - startX); });
+    });
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) window.addEventListener('load', () => heroBg.classList.add('loaded'));
+  </script>
+</body>
+</html>
